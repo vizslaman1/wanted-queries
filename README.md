@@ -18,12 +18,14 @@ Development on the application has been focused only on completing the form and 
 
 #### This screen exists to generate the text string which will be sent to the state or federal government, who will register a warrant using the supplied information.
 
+##### Entry Requirements
 alpha: any alphabetical characters, upper or lower case
 
 numeric: numbers only, 0-9
 
 special: these are any characters other than numbers and letters, including blank spaces ' ' - Periods '.' should not be allowed, as it will break message parsing.
 
+##### Field Requirements
 * Header: Required, 9-19 characters in length, any allowed
 * MKE: Required, 2-4 alpha/special characters in length
 * Originating Agency Identifier: Required, 9 alphanumeric characters in length
@@ -42,6 +44,7 @@ special: these are any characters other than numbers and letters, including blan
 * License State: Optional, 2 characters in length, State Abbreviations only, if included requires License Plate and License Year
 * License Year: Optional, 4 characters in length, numeric in YYYY format, if included requires License Plate and License Year
 
+##### Results
 Upon successful entry, a text message will be created, which consists of each of the values entered, separated by a '.' - any optional fields left blank will still be denoted in the message by an additional '.'
 
 </details>
@@ -98,12 +101,14 @@ Upon successful entry, a text message will be created, which consists of each of
 
 #### This screen exists to generate the text string which will be sent to the state or federal government, who will use the Warrant ID to find and cancel an existing warrant.
 
+##### Entry Requirements
 alpha: any alphabetical characters, upper or lower case
 
 numeric: numbers only, 0-9
 
 special: these are any characters other than numbers and letters, including blank spaces ' ' - Periods '.' should not be allowed, as it will break message parsing.
 
+##### Field Requirements
 * Warrant ID: Required, 10 numbers - this ID is returned to the sending organization by the receiving organization when a warrant is entered.
 * Reason for Cancellation: Required, 10-150 characters in length, any allowed - this is a free text field to explain why a warrant is being cancelled.
 * Date of Cancellation: Required, 8 characters long, numerid in MMDDYYYY format - this is the date the cancellation is to take effect.
