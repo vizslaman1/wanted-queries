@@ -1,298 +1,107 @@
 <img src="https://devmounta.in/img/logowhiteblue.png" width="250" align="right">
 
-# Project Summary
+# AJ's Enter Wanted Test
 
-In this project, we will create a very basic React application from scratch that makes use of multiple routes. We will be using the `react-router-dom` package, specifically v4. You can find more documentation to read on your own time here: <a href="https://reacttraining.com/react-router/web/guides/philosophy">Click Me!</a>
+This protect is to create a web form that will generate the text to submit to the NCIC to add, edit, or delete a warrant.
 
-## Live Example
+It is assumed that if incorrect entry occurs, the proper error message will be displayed to assist the user in correcting their mistakes.
 
-<a href="https://devmountain.github.io/react-routing/#/">Click Me!</a>
+Development on the application has been focused only on completing the form and validations, stylistic concerns are not being addressed at this time.
 
-<img src="https://github.com/DevMountain/react-routing/blob/solution/readme-assets/1.png" />
-
-## Setup
-
-* `Fork` and `clone` this repository.
-* `cd` into the project.
-* Run `create-react-app ./` to get a React boilerplate.
-  * Delete `README.md` and rename `README.old.md` back to `README.md`.
-
-## Step 1
-
-### Summary 
-
-In this step, we will create three basic components that will be used later for three separate routes.
-
-### Instructions
-
-* Open `src/`.
-* Create a `Route1.js`, `Route2.js`, and `Route3.js`.
-* All three `Route#.js` files should be very basic state-less components.
-
-### Solution
+### The requirements are as follows for each screen, and the results:
 
 <details>
 
-<summary> <code> src/Route1.js </code> </summary>
-
-```js
-import React from 'react';
-
-export default function Route1() {
-  return (
-    <div>
-      Route 1 here!
-    </div>
-  )
-}
-```
-
-</details>
-
-<details>
-
-<summary> <code> src/Route2.js </code> </summary>
-
-```js
-import React from 'react';
-
-export default function Route2() {
-  return (
-    <div>
-      Route 2 here!
-    </div>
-  )
-}
-```
-
-</details>
-
-<details>
-
-<summary> <code> src/Route3.js </code> </summary>
-
-```js
-import React from 'react';
-
-export default function Route3() {
-  return (
-    <div>
-      Route 3 here!
-    </div>
-  )
-}
-```
-
-</details>
-
-## Step 2
-
-### Summary
-
-In this step, we will add the `react-router-dom` package to our React project.
-
-### Instructions
-
-* Run `npm install --save react-router-dom`.
-
-### Solution
-
-<img src="https://github.com/DevMountain/react-routing/blob/solution/readme-assets/1g.gif" />
-
-## Step 3
-
-### Summary
-
-In this step, we will configure routes using a `routes.js` file.
-
-### Instructions
-
-* Create a new `src/routes.js` file.
-* Open `src/routes.js`.
-* Import `React` from `react`.
-* Import `{ Switch, Route }` from `react-router-dom`.
-* Import the three `src/Route#.js` components.
-* Export by default a `<Switch></Switch>` component.
-* Add three `<Route></Route>` components for each `src/Route#.js` component inside the exported `<Switch></Switch>` component.
-
-## Solution
-
-<details>
-
-<summary> <code> src/routes.js </code> </summary>
-
-```js
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-
-// Components
-import Route1 from './Route1';
-import Route2 from './Route2';
-import Route3 from './Route3';
-
-export default (
-  <Switch>
-    <Route exact path="/" component={ Route1 } />
-    <Route path="/2" component={ Route2 } />
-    <Route path="/3" component={ Route3 } />
-  </Switch>
-)
-```
-
-</details>
-
-## Step 4
-
-### Summary
-
-In this step, we'll render the `routes` inside the main `src/App.js` component.
-
-### Instructions
-
-* Open `src/App.js`.
-* Import the `src/routes.js` file.
-* Underneath the `<p></p>` element use `{}` to break out of JSX and render the imported router.
-
-### Solution
-
-<details>
-
-<summary> <code> src/App.js </code> </summary>
-
-```js
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-import routes from './routes';
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-
-        { routes }
-      </div>
-    );
-  }
-}
-
-export default App;
-```
-
-</details>
-
-## Step 5
-
-### Summary
-
-In this step, we'll configure our React application to handle routing.
-
-### Instructions
-
-* Open `src/index.js`.
-* Import `HashRouter` from `react-router-dom`.
-* In the `ReactDOM.render` statement, wrap the `<App />` component in a `<HashRouter></HashRouter>` component.
-
-### Solution
-
-<details>
-
-<summary> <code> src/index.js </code> </summary>
-
-```js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
-
-// Routing
-import { HashRouter } from 'react-router-dom';
-
-ReactDOM.render(
-  <HashRouter>
-    <App />
-  </HashRouter>
-, document.getElementById('root'));
-
-registerServiceWorker();
-```
-
-</details>
-
-## Step 6
-
-### Summary 
-
-In this step, we'll provide a way for a user to navigate between the routes. Using `react-router-dom`, this is done by using the `<Link></Link>` component.
-
-### Instructions
-
-* Open `src/App.js`.
-* Import `Link` from `react-router-dom`.
-* Above the rendering of the routes, add three `<Link>` components that route to the three different paths configured in `src/routes.js`.
-
-### Solution
-
-<details>
-
-<summary> <code> src/App.js </code> </summary>
-
-```js
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-import routes from './routes';
-import { Link } from 'react-router-dom';
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-
-        <Link to="/">
-          <p>Route 1</p>
-        </Link>
-
-        <Link to="/2">
-          <p>Route 2</p>
-        </Link>
-
-        <Link to="/3">
-          <p>Route 3</p>
-        </Link>
-        
-        { routes }
-      </div>
-    );
-  }
-}
-
-export default App;
-```
-
-</details>
+<summary> Enter Wanted Requirements </summary>
 
 <br />
 
-<img src="https://github.com/DevMountain/react-routing/blob/solution/readme-assets/2g.gif" />
+#### This screen exists to generate the text string which will be sent to the state or federal government, who will register a warrant using the supplied information.
 
+alpha: any alphabetical characters, upper or lower case
+
+numeric: numbers only, 0-9
+
+special: these are any characters other than numbers and letters, including blank spaces ' ' - Periods '.' should not be allowed, as it will break message parsing.
+
+* Header: Required, 9-19 characters in length, any allowed
+* MKE: Required, 2-4 alpha/special characters in length
+* Originating Agency Identifier: Required, 9 alphanumeric characters in length
+* Name: Required, 3-30 characters in length, any allowed
+* Sex: Required, 1 character in length, alphabet only, F (female) M (male) and U (unknown) are the only accepted entries
+* Race: Required, 1 character in length, alphabet only
+* Height: Required, 3 characters in length, numeric only in FII format, where F is feet and I is inches
+* Weight: Required, 1-3 characters in length, numeric only in lbs, leading zeros to be entered systematically as necessary to change the length to 3 characters in the assembled query.
+* Hair: Required, 3-10 characters in length, alpha only
+* Offense: Required, 5-15 characters in length, any allowed
+* Date of Warrant/Violation: Required, 8 characters in length, numeric in MMDDYYYY format (allows dates from 1900 to today +1 day, to account for time zone differences)
+* Drivers License: Optional, 1-20 characters in length, any characters allowed, if included requires DL State & DL Expiration Year
+* DL State: Optional, 2 characters in length, State Abbreviations only, if included requires Drivers License & DL Expiration Year
+* DL Expiration Year: Optional, 4 characters in length, numeric in YYYY format, if included requires Drivers License & DL State
+* License Plate: Optional, 5-8 alphanumeric characters in length, if included requires License State & License Year
+* License State: Optional, 2 characters in length, State Abbreviations only, if included requires License Plate and License Year
+* License Year: Optional, 4 characters in length, numeric in YYYY format, if included requires License Plate and License Year
+
+Upon successful entry, a text message will be created, which consists of each of the values entered, separated by a '.' - any optional fields left blank will still be denoted in the message by an additional '.'
+
+</details>
+
+<details>
+
+<summary> Modify Wanted Requirements </summary>
+
+<br />
+
+#### This screen exists to generate the text string which will be sent to the state or federal government, who will use the Warrant ID to find an existing warrant which will be modified with any other supplied information.
+
+alpha: any alphabetical characters, upper or lower case
+
+numeric: numbers only, 0-9
+
+special: these are any characters other than numbers and letters, including blank spaces ' ' - Periods '.' should not be allowed, as it will break message parsing.
+
+* Warrant ID: Required, 10 numbers - this ID is returned to the sending organization by the receiving organization when a warrant is entered.
+* Header: Optional, 9-19 characters in length, any allowed
+* MKE: Optional, 2-4 alpha/special characters in length
+* Originating Agency Identifier: Optional, 9 alphanumeric characters in length
+* Name: Optional, 3-30 characters in length, any allowed
+* Sex: Optional, 1 character in length, alphabet only, F (female) M (male) and U (unknown) are the only accepted entries
+* Race: Optional, 1 character in length, alphabet only
+* Height: Optional, 3 characters in length, numeric only in FII format, where F is feet and I is inches
+* Weight: Optional, 1-3 characters in length, numeric only in lbs, leading zeros to be entered systematically as necessary to change the length to 3 characters in the assembled query.
+* Hair: Optional, 3-10 characters in length, alpha only
+* Offense: Optional, 5-15 characters in length, any allowed
+* Date of Warrant/Violation: Optional, 8 characters in length, numeric in MMDDYYYY format (allows dates from 1900 to today +1 day, to account for time zone differences)
+* Drivers License: Optional, 1-20 characters in length, any characters allowed, if included requires DL State & DL Expiration Year
+* DL State: Optional, 2 characters in length, State Abbreviations only, if included requires Drivers License & DL Expiration Year
+* DL Expiration Year: Optional, 4 characters in length, numeric in YYYY format, if included requires Drivers License & DL State
+* License Plate: Optional, 5-8 alphanumeric characters in length, if included requires License State & License Year
+* License State: Optional, 2 characters in length, State Abbreviations only, if included requires License Plate and License Year
+* License Year: Optional, 4 characters in length, numeric in YYYY format, if included requires License Plate and License Year
+
+Upon successful entry, a text message will be created, which consists of each of the values entered, separated by a '.' - any optional fields left blank will still be denoted in the message by an additional '.'
+
+</details>
+
+<details>
+
+<summary> Cancel Wanted Requirements </summary>
+
+<br />
+
+#### This screen exists to generate the text string which will be sent to the state or federal government, who will use the Warrant ID to find and cancel an existing warrant.
+
+alpha: any alphabetical characters, upper or lower case
+
+numeric: numbers only, 0-9
+
+special: these are any characters other than numbers and letters, including blank spaces ' ' - Periods '.' should not be allowed, as it will break message parsing.
+
+* Warrant ID: Required, 10 numbers - this ID is returned to the sending organization by the receiving organization when a warrant is entered.
+* Reason for Cancellation: Required, 10-150 characters in length, any allowed - this is a free text field to explain why a warrant is being cancelled.
+* Date of Cancellation: Required, 8 characters long, numerid in MMDDYYYY format - this is the date the cancellation is to take effect.
+
+</details>
 
 ## Contributions
 
