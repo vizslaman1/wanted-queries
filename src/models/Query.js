@@ -84,8 +84,6 @@ export default class Query {
     })
     if (this.valid) {
       Object.entries(this.fields).forEach(([key, value]) => {
-        console.log(key)
-        console.log(value.input)
         if (key === 'wgt') {
           while (value.input.length < 3) {
             value.input = '0' + value.input; //will increase length with preceding zeroes until the value is 3 characters long
