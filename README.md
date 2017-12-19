@@ -19,11 +19,11 @@ Development on the application has been focused only on completing the form and 
 #### This screen exists to generate the text string which will be sent to the state or federal government, who will register a warrant using the supplied information.
 
 ##### Entry Requirements
-alpha: any alphabetical characters, upper or lower case
+*alpha*: any alphabetical characters, upper or lower case
 
-numeric: numbers only, 0-9
+*numeric*: numbers only, 0-9
 
-special: these are any characters other than numbers and letters, including blank spaces ' ' - Periods '.' should not be allowed, as it will break message parsing.
+*special*: these are any characters other than numbers and letters, including blank spaces ' ' - Periods '.' should not be allowed, as it will break message parsing.
 
 ##### Field Requirements
 * Header: Required, 9-19 characters in length, any allowed
@@ -39,10 +39,10 @@ special: these are any characters other than numbers and letters, including blan
 * Date of Warrant/Violation: Required, 8 characters in length, numeric in MMDDYYYY format (allows dates from 1900 to today +1 day, to account for time zone differences)
 * Drivers License: Optional, 1-20 characters in length, any characters allowed, if included requires DL State & DL Expiration Year
 * DL State: Optional, 2 characters in length, State Abbreviations only, if included requires Drivers License & DL Expiration Year
-* DL Expiration Year: Optional, 4 characters in length, numeric in YYYY format, if included requires Drivers License & DL State
+* DL Expiration Date: Optional, 8 characters in length, numeric in MMDDYYYY format, if included requires Drivers License & DL State
 * License Plate: Optional, 5-8 alphanumeric characters in length, if included requires License State & License Year
 * License State: Optional, 2 characters in length, State Abbreviations only, if included requires License Plate and License Year
-* License Year: Optional, 4 characters in length, numeric in YYYY format, if included requires License Plate and License Year
+* License Expiration Date: Optional, 8 characters in length, numeric in MMDDYYYY format, if included requires License Plate and License Year
 
 ##### Results
 Upon successful entry, a text message will be created, which consists of each of the values entered, separated by a '.' - any optional fields left blank will still be denoted in the message by an additional '.'
@@ -62,11 +62,11 @@ Upon successful entry, a text message will be created, which consists of each of
 * At least ONE other field must be populated (any populated fields will overwrite the value in the recipients' database(s))
 
 ##### Entry Requirements
-alpha: any alphabetical characters, upper or lower case
+*alpha*: any alphabetical characters, upper or lower case
 
-numeric: numbers only, 0-9
+*numeric*: numbers only, 0-9
 
-special: these are any characters other than numbers and letters, including blank spaces ' ' - Periods '.' should not be allowed, as it will break message parsing.
+*special*: these are any characters other than numbers and letters, including blank spaces ' ' - Periods '.' should not be allowed, as it will break message parsing.
 
 ##### Field Requirements
 * Warrant ID: Required, 10 numbers - this ID is returned to the sending organization by the receiving organization when a warrant is entered.
@@ -83,10 +83,10 @@ special: these are any characters other than numbers and letters, including blan
 * Date of Warrant/Violation: Optional, 8 characters in length, numeric in MMDDYYYY format (allows dates from 1900 to today +1 day, to account for time zone differences)
 * Drivers License: Optional, 1-20 characters in length, any characters allowed, if included requires DL State & DL Expiration Year
 * DL State: Optional, 2 characters in length, State Abbreviations only, if included requires Drivers License & DL Expiration Year
-* DL Expiration Year: Optional, 4 characters in length, numeric in YYYY format, if included requires Drivers License & DL State
+* DL Expiration Date: Optional, 4 characters in length, numeric in YYYY format, if included requires Drivers License & DL State
 * License Plate: Optional, 5-8 alphanumeric characters in length, if included requires License State & License Year
 * License State: Optional, 2 characters in length, State Abbreviations only, if included requires License Plate and License Year
-* License Year: Optional, 4 characters in length, numeric in YYYY format, if included requires License Plate and License Year
+* License Expiration Date: Optional, 8 characters in length, numeric in MMDDYYYY format, if included requires License Plate and License Year
 
 ##### Results
 Upon successful entry, a text message will be created, which consists of each of the values entered, separated by a '.' - any optional fields left blank will still be denoted in the message by an additional '.'
@@ -102,16 +102,16 @@ Upon successful entry, a text message will be created, which consists of each of
 #### This screen exists to generate the text string which will be sent to the state or federal government, who will use the Warrant ID to find and cancel an existing warrant.
 
 ##### Entry Requirements
-alpha: any alphabetical characters, upper or lower case
+*alpha*: any alphabetical characters, upper or lower case
 
-numeric: numbers only, 0-9
+*numeric*: numbers only, 0-9
 
-special: these are any characters other than numbers and letters, including blank spaces ' ' - Periods '.' should not be allowed, as it will break message parsing.
+*special*: these are any characters other than numbers and letters, including blank spaces ' ' - Periods '.' should not be allowed, as it will break message parsing.
 
 ##### Field Requirements
-* Warrant ID: Required, 10 numbers - this ID is returned to the sending organization by the receiving organization when a warrant is entered.
+* Warrant ID: Required, 10 characers in length, numeric only - this ID is returned to the sending organization by the receiving organization when a warrant is entered.
 * Reason for Cancellation: Required, 10-150 characters in length, any allowed - this is a free text field to explain why a warrant is being cancelled.
-* Date of Cancellation: Required, 8 characters long, numerid in MMDDYYYY format - this is the date the cancellation is to take effect.
+* Date of Cancellation: Required, 8 characters in length, numeric in MMDDYYYY format - this is the date the cancellation is to take effect.
 
 </details>
 

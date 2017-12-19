@@ -25,8 +25,8 @@ class EnterWanted extends Component {
         {required: false, name: 'DL State', code: 'ols', set: [], alpha: true, numeric: false, special: false, custom: 'state', min: 2, max: 2, input: ''},
         {required: false, name: 'DL Expiration Date', code: 'old', set: [], alpha: false, numeric: true, special: false, custom: 'date', min: 8, max: 8, input: ''},
         {required: false, name: 'License Plate', code: 'lic', set: ['lic', 'lis', 'lid'], alpha: true, numeric: true, special: false, custom: null, min: 5, max: 8, input: ''},
-        {required: false, name: 'LP State', code: 'lis', set: [], alpha: true, numeric: false, special: false, custom: 'state', min: 2, max: 2, input: ''},
-        {required: false, name: 'LP Expiration Date', code: 'lid', set: [], alpha: false, numeric: true, special: false, custom: 'date', min: 8, max: 8, input: ''}
+        {required: false, name: 'License State', code: 'lis', set: [], alpha: true, numeric: false, special: false, custom: 'state', min: 2, max: 2, input: ''},
+        {required: false, name: 'License Expiration Date', code: 'lid', set: [], alpha: false, numeric: true, special: false, custom: 'date', min: 8, max: 8, input: ''}
       ])
     }
 
