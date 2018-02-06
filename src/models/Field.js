@@ -3,16 +3,24 @@
 //defines acceptable data types
 const dataTypes = {
     date: {
-        regex: new RegExp('^(0[0-9]|1[0-2])(0[1-9]|[1-3][0-9])(19|20)([0-9][0-9])$'),
-        error: 'must be entered as a date, MMDDYYYY, no earlier than 01011900 and no later than today\'s date.\n'
+        regex: 'N/A',
+        error: 'must be entered as a date, MM/DD/YYYY, no earlier than 01/01/1900 and no later than today\'s date.\n'
+    },
+    exp: {
+        regex: 'N/A',
+        error: 'must be entered as a date, MM/DD/YYYY, no earlier than 01/01/1900.\n'
     },
     year: {
         regex: new RegExp('^(19|20)([0-9][0-9])'),
         error: 'must be entered as a 4 digit year, YYYY, no earlier than 1900 and no later than this year.\n'
     },
+    race: {
+        regex: new RegExp('^(A|B|H|I|W|U)$'),
+        error: 'must be one of the following: "Asian / Pacific Islander", "Black", "Hispanic", "American Indian/Alaskan Native", "White", "Unknown".\n'
+    },
     sex: {
-        regex: new RegExp('^(M|F|U|m|f|u)$'),
-        error: 'must be entered in as a single character, M for male, F for female, U for unknown.\n'
+        regex: new RegExp('^(M|F|O|U)$'),
+        error: 'must be one of the following: "Female", "Male", "Other", "Unknown".\n'
     },
     alpha: {
         regex: new RegExp('^[a-zA-Z]+$'),
@@ -133,11 +141,17 @@ export default class Field {
                 // if (!valid)
                 // throw 'Invalid value in ' + this.name //throws error if invalid value entered
             }
-
             //this section will only trigger if a regex has been defined for the field, which should be any field that has any content validation at all (not allowing any types of characters whatsoever), and regex will only be set if it passed field length requirements already, so this will only trigger while the field has passed everything so far...
             if (regex !== '') {
-                valid = regex.test(value) //valid will be set to true if the content matches the set regex
-
+                if (regex !== 'N/A')
+                    valid = regex.test(value) //valid will be set to true if the content matches the set regex
+                //checks expirations or dates to be no earlier than 1900
+                if (this.custom === 'date' || this.custom === 'exp') {
+                    if(value.slice(0, 4) < 1900)
+                        valid = false
+                    else
+                        valid = true
+                }
                 //further date checking to make sure the date is no later than tomorrow
                 if (this.custom === 'date' && valid) {
                     let date = new Date()
@@ -145,9 +159,9 @@ export default class Field {
                     today += date.getFullYear() //formatting date YYYYMMDD allows for direct >< comparison for earlier/later dates
                     let month = date.getMonth() + 1
                     today += month < 10 ? '0' + month : month //adds leading 0 for months before october (10)
-                    let day = date.getDate() + 1 //to account for differences in time zones, will allow one day past current date
+                    let day = date.getDate() + 2 //to account for differences in time zones, will allow one day past current date
                     today += day < 10 ? '0' + day : day //adds leading 0 for days before the 10th of the month
-                    let dateToCompare = value.slice(4, 8) + value.slice(0, 2) + value.slice(2, 4) //changes entered date to YYYYMMDD for direct comparison
+                    let dateToCompare = value.slice(0, 4) + value.slice(5, 7) + value.slice(8, 10) //changes entered date to YYYYMMDD for direct comparison
                     valid = parseInt(dateToCompare, 10) < parseInt(today, 10) ? true : false //returns true if date entered is less than today
                 }
                 //further checking to make sure the year is no later than this year

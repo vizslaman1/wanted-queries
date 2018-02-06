@@ -15,18 +15,18 @@ class EnterWanted extends Component {
         {required: true, name: 'Originating Agency Identifier', code: 'ori', set: [], alpha: true, numeric: true, special: false, custom: null, min: 9, max: 9, input: ''},
         {required: true, name: 'Name', code: 'nam', set: [], alpha: true, numeric: true, special: true, custom: null, min: 3, max: 30, input: ''},
         {required: true, name: 'Sex', code: 'sex', set: [], alpha: true, numeric: false, special: false, custom: 'sex', min: 1, max: 1, input: ''},
-        {required: true, name: 'Race', code: 'rac', set: [], alpha: true, numeric: false, special: false, custom: null, min: 1, max: 1, input: ''},
+        {required: true, name: 'Race / Ethnicity', code: 'rac', set: [], alpha: true, numeric: false, special: false, custom: 'race', min: 1, max: 1, input: ''},
         {required: true, name: 'Height', code: 'hgt', set: [], alpha: false, numeric: true, special: false, custom: null, min: 3, max: 3, input: ''},
         {required: true, name: 'Weight', code: 'wgt', set: [], alpha: false, numeric: true, special: false, custom: null, min: 1, max: 3, input: ''},
         {required: true, name: 'Hair', code: 'hai', set: [], alpha: true, numeric: false, special: true, custom: null, min: 3, max: 10, input: ''}, 
         {required: true, name: 'Offense', code: 'off', set: [], alpha: true, numeric: true, special: true, custom: null, min: 5, max: 15, input: ''},
-        {required: true, name: 'Date of Warrant/Violation', code: 'dow', set: [], alpha: false, numeric: true, special: false, custom: 'date', min: 8, max: 8, input: ''},
+        {required: true, name: 'Date of Warrant/Violation', code: 'dow', set: [], alpha: false, numeric: true, special: false, custom: 'date', min: 10, max: 10, input: ''},
         {required: false, name: 'Drivers License', code: 'oln', set: ['oln', 'ols', 'old'], alpha: true, numeric: true, special: true, custom: null, min: 1, max: 20, input: ''},
         {required: false, name: 'DL State', code: 'ols', set: [], alpha: true, numeric: false, special: false, custom: 'state', min: 2, max: 2, input: ''},
-        {required: false, name: 'DL Expiration Date', code: 'old', set: [], alpha: false, numeric: true, special: false, custom: 'date', min: 8, max: 8, input: ''},
+        {required: false, name: 'DL Expiration Date', code: 'old', set: [], alpha: false, numeric: true, special: false, custom: 'date', min: 10, max: 10, input: ''},
         {required: false, name: 'License Plate', code: 'lic', set: ['lic', 'lis', 'lid'], alpha: true, numeric: true, special: false, custom: null, min: 5, max: 8, input: ''},
         {required: false, name: 'License State', code: 'lis', set: [], alpha: true, numeric: false, special: false, custom: 'state', min: 2, max: 2, input: ''},
-        {required: false, name: 'License Expiration Date', code: 'lid', set: [], alpha: false, numeric: true, special: false, custom: 'date', min: 8, max: 8, input: ''}
+        {required: false, name: 'License Expiration Date', code: 'lid', set: [], alpha: false, numeric: true, special: false, custom: 'date', min: 10, max: 10, input: ''}
       ])
     }
 

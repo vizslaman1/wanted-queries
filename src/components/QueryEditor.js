@@ -51,11 +51,48 @@ class QueryEditor extends Component {
     let inputs = []
     fieldNames.forEach(name => {
       let field = this.state.query.fields[name]
-      inputs.push(<div key={name}>
-        <span className="fieldHeader" name={field.code + 'Header'}> {field.name} </span><br />
-        <input className="inputField" name={field.code + 'Input'} value={this.state.query.fields[field.code].input || ''} onChange={(e) => { this.handleChange(field.code, e.target.value) }}></input>
-      </div>
-      )
+
+      switch (field.custom) {
+        case 'date':
+        case 'exp':
+          inputs.push(<div key={name}>
+            <span className="fieldHeader" name={field.code + 'Header'}> {field.name} </span><br />
+            <input type="date" className="inputField" name={field.code + 'Input'} value={this.state.query.fields[field.code].input || ''} onChange={(e) => { this.handleChange(field.code, e.target.value) }}></input>
+          </div>)
+          break;
+        case 'sex':
+          inputs.push(<div key={name}>
+            <span className="fieldHeader" name={field.code + 'Header'}> {field.name} </span><br />
+            <select className="inputField" name={field.code + 'Input'} value={this.state.query.fields[field.code].input || ''} onChange={(e) => { this.handleChange(field.code, e.target.value) }}>
+              <option value=""></option>
+              <option value="F">Female</option>
+              <option value="M">Male</option>
+              <option value="O">Other</option>
+              <option value="U">Unknown</option>
+            </select>
+          </div>)
+          break;
+        case 'race':
+          inputs.push(<div key={name}>
+            <span className="fieldHeader" name={field.code + 'Header'}> {field.name} </span><br />
+            <select className="inputField" name={field.code + 'Input'} value={this.state.query.fields[field.code].input || ''} onChange={(e) => { this.handleChange(field.code, e.target.value) }}>
+              <option value=""></option>
+              <option value="A">Asian / Pacific Islander</option>
+              <option value="B">Black</option>
+              <option value="H">Hispanic</option>
+              <option value="I">American Indian / Alaskan Native</option>
+              <option value="W">White</option>              
+              <option value="U">Unknown</option>
+            </select>
+          </div>)
+          break;
+        default:
+          inputs.push(<div key={name}>
+            <span className="fieldHeader" name={field.code + 'Header'}> {field.name} </span><br />
+            <input className="inputField" name={field.code + 'Input'} value={this.state.query.fields[field.code].input || ''} onChange={(e) => { this.handleChange(field.code, e.target.value) }}></input>
+          </div>
+          )
+      }
     })
     let errors = []
     if (!this.state.valid)
