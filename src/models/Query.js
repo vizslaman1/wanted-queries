@@ -59,7 +59,7 @@ export default class Query {
       let field = fields[name]
       if (field.required && this.fields[field.code].input === '') {
         this.valid = false
-        errorMessages.push('The field named "' + field.name + '" must be included.\n')
+        errorMessages.push('The "' + field.name + '" field must be included.\n')
       }
 
       let results = field.validate(this.fields[field.code].input)

@@ -97,6 +97,11 @@ export default class Field {
                 errorMessages.push('The "' + this.name + '" field should be between ' + this.min + ' and ' + this.max + ' characters long.')
         }
 
+        if (value.indexOf('.') !== -1) { // checks if the string has periods
+            errorMessages.push('The "' + this.name + '" field has one or more periods, which are unacceptable in any field.')
+            valid = false
+        }
+
         if (valid && value !== '') { //only checks field content if the right number of characters is entered.
             let errorStart = 'The "' + this.name + '" field '
             switch (this.custom) {
@@ -147,7 +152,7 @@ export default class Field {
                     valid = regex.test(value) //valid will be set to true if the content matches the set regex
                 //checks expirations or dates to be no earlier than 1900
                 if (this.custom === 'date' || this.custom === 'exp') {
-                    if(value.slice(0, 4) < 1900)
+                    if (value.slice(0, 4) < 1900)
                         valid = false
                     else
                         valid = true
