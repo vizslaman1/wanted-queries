@@ -185,6 +185,8 @@ Current Version: **1.1**
 <summary> Change Log for 1.1 </summary>
 
 **Updated readme for:**
+* Change log added
+* Environmental requirements added
 * Date fields - updated to date picker, no date before 1900, even on expirations
 * Sex - details on the dropdown added
 * Race - changed to 'Race / Ethnicity' and details on the dropdown added
@@ -192,10 +194,8 @@ Current Version: **1.1**
 * Error Handling - examples of error messages and how errors as a whole are handled
 * Typos
 
-**Added Validation for:**
+**Bug Fixes:**
 * Periods in any field will now generate a field specific error message - for example: "The "Name" field has one or more periods, which are unacceptable in any field."
-
-**Bug Fix:**
 * "Reason for Cancellation" was accepting only 5 characters.  This has been fixed so the field matches the requirements.
 * The "Modify" screen now will enforce that at least one optional field has to be entered
 * The weight field will no longer autofill with 000s.
