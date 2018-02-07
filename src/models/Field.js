@@ -158,6 +158,7 @@ export default class Field {
                         valid = false
                     else
                         valid = true
+
                 }
                 //further date checking to make sure the date is no later than tomorrow
                 if (this.custom === 'date' && valid) {
@@ -178,22 +179,22 @@ export default class Field {
                 }
 
                 //height and weight cannot be 0.
-                else if (this.code === 'wgt' || this.code === 'hgt'){
-                    if(!parseInt(this.input, 10) > 0){
+                else if (this.code === 'wgt' || this.code === 'hgt') {
+                    if (!parseInt(this.input, 10) > 0) {
                         valid = false
-                        errorMessages.push(`The ${this.name} field needs to have a value greater than 0.`)
+                        errorMessages.push(`The "${this.name}" field needs to have a value greater than 0.`)
                     }
                 }
             }
             //if the field checks out as valid, makes sure to pass an empty list of error messages
-            if (valid){
+            if (valid) {
                 errorMessages = []
             }
         }
-        if (valid){
+        if (valid) {
             this.error = false
         }
-        else{
+        else {
             this.error = true
         }
 

@@ -23,10 +23,10 @@ class EnterWanted extends Component {
         {required: true, name: 'Date of Warrant/Violation', code: 'dow', set: [], alpha: false, numeric: true, special: false, custom: 'date', min: 10, max: 10, input: ''},
         {required: false, name: 'Drivers License', code: 'oln', set: ['oln', 'ols', 'old'], alpha: true, numeric: true, special: true, custom: null, min: 1, max: 20, input: '', placeholder: 'A264756'},
         {required: false, name: 'DL State', code: 'ols', set: [], alpha: true, numeric: false, special: false, custom: 'state', min: 2, max: 2, input: '', placeholder: 'CA'},
-        {required: false, name: 'DL Expiration Date', code: 'old', set: [], alpha: false, numeric: true, special: false, custom: 'date', min: 10, max: 10, input: ''},
+        {required: false, name: 'DL Expiration Date', code: 'old', set: [], alpha: false, numeric: true, special: false, custom: 'exp', min: 10, max: 10, input: ''},
         {required: false, name: 'License Plate', code: 'lic', set: ['lic', 'lis', 'lid'], alpha: true, numeric: true, special: false, custom: null, min: 5, max: 8, input: '', placeholder: '93HG123'},
         {required: false, name: 'License State', code: 'lis', set: [], alpha: true, numeric: false, special: false, custom: 'state', min: 2, max: 2, input: '', placeholder: 'CA'},
-        {required: false, name: 'License Expiration Date', code: 'lid', set: [], alpha: false, numeric: true, special: false, custom: 'date', min: 10, max: 10, input: ''}
+        {required: false, name: 'License Expiration Date', code: 'lid', set: [], alpha: false, numeric: true, special: false, custom: 'exp', min: 10, max: 10, input: ''}
       ])
     }
 
@@ -41,6 +41,7 @@ class EnterWanted extends Component {
     return (
       <div id="app">
         <div className="main-container">
+          <h2> Enter Wanted </h2>
           <QueryEditor query={this.state.query} type="enter" />
         </div>
       </div>
