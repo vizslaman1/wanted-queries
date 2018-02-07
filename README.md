@@ -172,6 +172,12 @@ Empty required fields are also hilighted in blue.
 
 <br />
 
+### Environment
+
+The forms should be usable in any modern browser, mobile or desktop, but will be supported mainly in the desktop version of Chrome.  It is possible bugs will persist in other versions/browsers.
+
+### Change Logs
+
 Current Version: **1.1**
 
 <details>
