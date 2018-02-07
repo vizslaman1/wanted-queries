@@ -128,7 +128,7 @@ Upon successful entry, a text message will be created, which consists of each of
 
 ### Error Handling
 
-Any error in entry should have a contexcualized error displayed in a bulleted list the same area a valid query would have appeared.  No assembled query will appear, instead you will see a message 'No results generated due to error.'
+Any error in entry should have a contexcualized error displayed in a bulleted list the same area a valid query would have appeared.  No assembled query will appear, instead you will see a message 'No results generated due to error.'  Any field that has an incorrect entry will also be highlighted in red until emptied out or resubmitted.
 
 See below for an example of each error message.
 
@@ -139,6 +139,8 @@ See below for an example of each error message.
 * The "Header" field must be included.
 * If one of the following are present, all must be present: Drivers License, DL State, DL Expiration Date.
 
+Empty required fields are also hilighted in blue.
+
 </details>
 
 <details>
@@ -147,6 +149,7 @@ See below for an example of each error message.
 
 * The "Originating Agency Identifier" field can only include characters from the English Alphabet or numeric characters.
 * The "MKE" field has one or more periods, which are unacceptable in any field.
+* The "Weight" field needs to have a value greater than 0.
 
 </details>
 
@@ -175,15 +178,24 @@ Current Version: **1.1**
 
 <summary> Change Log for 1.1 </summary>
 
-Updated readme for:
+**Updated readme for:**
 * Date fields - updated to date picker, no date before 1900, even on expirations
 * Sex - details on the dropdown added
 * Race - changed to 'Race / Ethnicity' and details on the dropdown added
 * Special Characters - clarification in rules
+* Error Handling - examples of error messages and how errors as a whole are handled
 * Typos
 
-Added Validation for:
+**Added Validation for:**
 * Periods in any field will now generate a field specific error message - for example: "The "Name" field has one or more periods, which are unacceptable in any field."
+
+**Bug Fix:**
+* The "Modify" screen now will enforce that at least one optional field has to be entered
+* The weight field will no longer autofill with 000s.
+
+**Improvements:**
+* Placeholder text added to all fields.
+* Empty required fields and fields in error are now highlighted, blue and red respectively.
 
 </details>
 

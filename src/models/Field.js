@@ -76,6 +76,8 @@ export default class Field {
         this.min = params.min //the minimum number of characters allowable
         this.max = params.max //the maximum number of characters allowable
         this.input = params.input //the value input
+        this.placeholder = params.placeholder //placeholder text to display
+        this.error = false
 
         this.validate = this.validate.bind(this)
     }
@@ -174,10 +176,25 @@ export default class Field {
                     let date = new Date()
                     valid = parseInt(value, 10) <= date.getFullYear() ? true : false //returns true if the year is less than or equal to this year
                 }
+
+                //height and weight cannot be 0.
+                else if (this.code === 'wgt' || this.code === 'hgt'){
+                    if(!parseInt(this.input, 10) > 0){
+                        valid = false
+                        errorMessages.push(`The ${this.name} field needs to have a value greater than 0.`)
+                    }
+                }
             }
             //if the field checks out as valid, makes sure to pass an empty list of error messages
-            if (valid)
+            if (valid){
                 errorMessages = []
+            }
+        }
+        if (valid){
+            this.error = false
+        }
+        else{
+            this.error = true
         }
 
         return { valid: valid, errorMessages: errorMessages }
