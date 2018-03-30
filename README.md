@@ -1,10 +1,12 @@
-<img src="https://devmounta.in/img/logowhiteblue.png" width="250" align="right">
+<img src="https://s3.amazonaws.com/devmountain/www/img/logowhiteblue.png" width="250" align="right">
 
 # Wanted Queries
 
 This project is to create a web form that will generate the text as if to submit to the NCIC to add, edit, or delete a warrant.
 
 It is assumed that if incorrect entry occurs, the proper error message will be displayed to assist the user in correcting their mistakes.
+
+The app is accessible [here](/build/index.html).
 
 ### Menu
 
@@ -225,5 +227,5 @@ If you see a problem or a typo, please fork, make the necessary changes, and cre
 © DevMountain LLC, 2018. Unauthorized use and/or duplication of this material without express and written permission from DevMountain, LLC is strictly prohibited. Excerpts and links may be used, provided that full and clear credit is given to DevMountain with appropriate and specific direction to the original content.
 
 <p align="center">
-<img src="https://devmounta.in/img/logowhiteblue.png" width="250">
+<img src="https://s3.amazonaws.com/devmountain/www/img/logowhiteblue.png" width="250" align="right">
 </p>
